@@ -24,9 +24,13 @@
             margin-left: 50px ;
             margin-right: 50px ;
         }
-
+        .main-title{
+            color: blue;
+            font-size: 20px;
+            padding: 5px;
+        }
         .border {
-            border: 1px solid black;
+            border: 11px solid rgb(63, 62, 62);
         }
 
         .application-images {
@@ -35,10 +39,21 @@
             padding: 5px;
         }
 
-        .application-name {
+        .material-name {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            background-color: rgb(132, 38, 38);
+            color: rgb(225, 234, 237) ;
+            border-radius: 10px;
+            font-size: 20px;
+            margin: 10px ;
+        }
+        .placeholder-name {
             display: flex;
             justify-content: center;
             color: red;
+            font-size: 17px;
         }
 
         .image-container {
@@ -53,13 +68,6 @@
             height: auto;
             padding: 5px;
             cursor: pointer;
-        }
-
-        .micro-image-drop {
-            width: 200px;
-            height: 150px;
-            /* border: 2px dashed #ccc; */
-            padding: 5px;
         }
     </style>
 
@@ -80,84 +88,74 @@
 
     <div class="container mb-2">
         <div class="row">
-            <span style="color: blue;">Material </span>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Aluminium </p>
+            <span class="main-title">Material </span>
+            <div class="col-md-2 border">
+                <p class="material-name "> Aluminium </p>
             </div>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Copper </p>
+            <div class="col-md-2 border">
+                <p class="material-name "> Copper </p>
             </div>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Brass (70-30) </p>
+            <div class="col-md-2 border">
+                <p class="material-name "> Brass (70-30) </p>
             </div>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Brass (60-40) </p>
+            <div class="col-md-2 border">
+                <p class="material-name "> Brass (60-40) </p>
             </div>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Bronze </p>
+            <div class="col-md-2 border">
+                <p class="material-name "> Bronze </p>
             </div>
-            <div class="col-md-2">
-                <p class="d-flex justify-content-center align-items-center"> Titanium </p>
+            <div class="col-md-2 border">
+                <p class="material-name "> Titanium </p>
             </div>
 
         </div>
         <div class="row">
-            <span style="color: blue;">Microstructure </span>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MicroOrthopaedicimplant.png" alt="" 
-                    ondragstart="drag(event)" />
-
+            <span class="main-title">Microstructure </span>
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MicroOrthopaedicimplant.png" alt="" />
             </div>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MircroAmmunitioncasing.png" alt="" 
-                    ondragstart="drag(event)" />
-
-            </div>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MicroBell.png" alt=""
-                    ondragstart="drag(event)" />
-
-            </div>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MicroSoftdrinkcans.png" alt="" 
-                    ondragstart="drag(event)" />
-
-            </div>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MicroElectricalwires.png" alt="" 
-                    ondragstart="drag(event)" />
-
-            </div>
-            <div class="col-md-2">
-                <img class="microstructure-images" src="./images/MicroTrumpets.png" alt="" 
-                    ondragstart="drag(event)" />
-
+            
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MircroAmmunitioncasing.png" alt="" />
             </div>
 
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MicroBell.png" alt="" />
+            </div>
+
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MicroSoftdrinkcans.png" alt="" />
+            </div>
+
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MicroElectricalwires.png" alt="" />
+            </div>
+
+            <div class="col-md-2 border">
+                <img class="microstructure-images" src="./images/MicroTrumpets.png" alt="" />
+            </div>
         </div>
 
 
-
-
         <div class="row">
-            <span style="color: blue;">Application </span>
+            <span class="main-title">Application </span>
             <div class="col-md-2 border"><img class="application-images" src="./images/Orthopaedicimplant.png" alt="" />
-                <p class="application-name"> Orthopaedic implant </p>
+                <p class="placeholder-name"> Orthopaedic implant </p>
             </div>
             <div class="col-md-2 border"><img class="application-images" src="./images/Ammunitioncasing.png" alt="" />
-                <p class="application-name"> Ammunition casing </p>
+                <p class="placeholder-name"> Ammunition casing </p>
             </div>
             <div class="col-md-2 border"><img class="application-images" src="./images/Bell.png" alt="" />
-                <p class="application-name"> Bell </p>
+                <p class="placeholder-name"> Bell </p>
             </div>
             <div class="col-md-2 border"><img class="application-images" src="./images/Softdrinkcans.png" alt="" />
-                <p class="application-name"> Soft drink cans </p>
+                <p class="placeholder-name"> Soft drink cans </p>
             </div>
             <div class="col-md-2 border"><img class="application-images" src="./images/Electricalwires.png" alt="" />
-                <p class="application-name"> Electrical wires </p>
+                <p class="placeholder-name"> Electrical wires </p>
             </div>
             <div class="col-md-2 border"><img class="application-images" src="./images/Trumpets.png" alt="" />
-                <p class="application-name"> Trumpets </p>
+                <p class="placeholder-name"> Trumpets </p>
             </div>
         </div>
 
