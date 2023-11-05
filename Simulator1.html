@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Simulator 1</title>
 
     <style>
@@ -21,14 +22,16 @@
             background-color: yellow;
             border-radius: 21px;
             font-size: 17px;
-            margin-left: 50px ;
-            margin-right: 50px ;
+            margin-left: 50px;
+            margin-right: 50px;
         }
-        .main-title{
+
+        .main-title {
             color: blue;
             font-size: 20px;
             padding: 5px;
         }
+
         .border {
             border: 11px solid rgb(63, 62, 62);
         }
@@ -37,6 +40,7 @@
             width: 100%;
             height: auto;
             padding: 5px;
+            cursor: pointer;
         }
 
         .material-name {
@@ -44,11 +48,18 @@
             justify-content: center;
             cursor: pointer;
             background-color: rgb(132, 38, 38);
-            color: rgb(225, 234, 237) ;
+            color: rgb(225, 234, 237);
             border-radius: 10px;
             font-size: 20px;
-            margin: 10px ;
+            margin: 10px;
+            border: none;
         }
+
+        .material-name:hover {
+            background-color: rgb(132, 38, 38);
+            color: rgb(225, 234, 237);
+        }
+
         .placeholder-name {
             display: flex;
             justify-content: center;
@@ -66,13 +77,33 @@
         .microstructure-images {
             width: 100%;
             height: auto;
-            padding: 5px;
+            margin: 5px;
+            padding: 3px;
             cursor: pointer;
+        }
+
+        .highlight {
+            background-color: rgb(136, 255, 0);
+            border: 2px solid red;
+            color: black;
+        }
+
+        .selected {
+            box-shadow: 2px -2px 43px 10px rgba(25, 135, 84, 0.8);
+            background-color: #198754;
+            color: white;
+
+        }
+
+        .highlighted-img {
+            -webkit-box-shadow: 2px -2px 43px 10px rgba(25, 135, 84, 0.8);
+            -moz-box-shadow: 2px -2px 43px 10px rgba(25, 135, 84, 0.8);
+            box-shadow: 2px -2px 43px 10px rgba(25, 135, 84, 0.8);
         }
     </style>
 
 
-   
+
 
 </head>
 
@@ -89,78 +120,295 @@
     <div class="container mb-2">
         <div class="row">
             <span class="main-title">Material </span>
-            <div class="col-md-2 border">
-                <p class="material-name "> Aluminium </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="aluminium"> Aluminium
+                </button>
             </div>
-            <div class="col-md-2 border">
-                <p class="material-name "> Copper </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="copper"> Copper
+                </button>
             </div>
-            <div class="col-md-2 border">
-                <p class="material-name "> Brass (70-30) </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="brass70"> Brass (70-30)
+                </button>
             </div>
-            <div class="col-md-2 border">
-                <p class="material-name "> Brass (60-40) </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="brass60"> Brass (60-40)
+                </button>
             </div>
-            <div class="col-md-2 border">
-                <p class="material-name "> Bronze </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="bronze"> Bronze
+                </button>
             </div>
-            <div class="col-md-2 border">
-                <p class="material-name "> Titanium </p>
+            <div class="col-md-2 ">
+                <button type="button" class="btn btn-outline-success material-name" id="titanium"> Titanium
+                </button>
             </div>
 
         </div>
         <div class="row">
             <span class="main-title">Microstructure </span>
             <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MicroOrthopaedicimplant.png" alt="" />
-            </div>
-            
-            <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MircroAmmunitioncasing.png" alt="" />
+                <img class="microstructure-images" id="m-ammu" src="./images/MircroAmmunitioncasing.png" alt="" />
             </div>
 
             <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MicroBell.png" alt="" />
+                <img class="microstructure-images" id="m-orth" src="./images/MicroOrthopaedicimplant.png" alt="" />
             </div>
 
             <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MicroSoftdrinkcans.png" alt="" />
+                <img class="microstructure-images" id="m-bell" src="./images/MicroBell.png" alt="" />
             </div>
 
             <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MicroElectricalwires.png" alt="" />
+                <img class="microstructure-images" id="m-elec" src="./images/MicroElectricalwires.png" alt="" />
             </div>
 
             <div class="col-md-2 border">
-                <img class="microstructure-images" src="./images/MicroTrumpets.png" alt="" />
+                <img class="microstructure-images" id="m-soft" src="./images/MicroSoftdrinkcans.png" alt="" />
+            </div>
+
+            <div class="col-md-2 border">
+                <img class="microstructure-images" id="m-trum" src="./images/MicroTrumpets.png" alt="" />
             </div>
         </div>
 
 
         <div class="row">
             <span class="main-title">Application </span>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Orthopaedicimplant.png" alt="" />
-                <p class="placeholder-name"> Orthopaedic implant </p>
-            </div>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Ammunitioncasing.png" alt="" />
-                <p class="placeholder-name"> Ammunition casing </p>
-            </div>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Bell.png" alt="" />
-                <p class="placeholder-name"> Bell </p>
-            </div>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Softdrinkcans.png" alt="" />
+            <div class="col-md-2 border">
+                <img class="application-images" id="app-soft" src="./images/Softdrinkcans.png"
+                    alt="" />
                 <p class="placeholder-name"> Soft drink cans </p>
             </div>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Electricalwires.png" alt="" />
+            <div class="col-md-2 border"><img class="application-images" id="app-ammu"
+                    src="./images/Ammunitioncasing.png" alt="" />
+                <p class="placeholder-name"> Ammunition casing </p>
+            </div>
+            <div class="col-md-2 border"> <img class="application-images" id="app-trum" src="./images/Trumpets.png"
+                alt="" />
+            <p class="placeholder-name"> Trumpets </p>
+            </div>
+            <div class="col-md-2 border"><img class="application-images" id="app-orth"
+                src="./images/Orthopaedicimplant.png" alt="" />
+            <p class="placeholder-name"> Orthopaedic implant </p>
+            </div>
+            <div class="col-md-2 border"><img class="application-images" id="app-elec"
+                    src="./images/Electricalwires.png" alt="" />
                 <p class="placeholder-name"> Electrical wires </p>
             </div>
-            <div class="col-md-2 border"><img class="application-images" src="./images/Trumpets.png" alt="" />
-                <p class="placeholder-name"> Trumpets </p>
+            <div class="col-md-2 border">
+                <img class="application-images" id="app-bell" src="./images/Bell.png" alt="" />
+                <p class="placeholder-name"> Bell </p>
             </div>
         </div>
-
-
     </div>
+
+
+
+
+    <!-- Modal for Quiz Completed -->
+    <div class="modal fade" id="quizCompletedModal" tabindex="-1" aria-labelledby="correctMatchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="correctMatchModalLabel">Correct Match</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    Congratulations! Quiz Completed.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="location.reload()"> Restart Quiz </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Correct Match -->
+    <div class="modal fade" id="correctMatchModal" tabindex="-1" aria-labelledby="correctMatchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="correctMatchModalLabel">Correct Match</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    Congratulations! You have made the correct match.
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="location.reload()"> ok </button>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Error Match -->
+    <div class="modal fade" id="errorMatchModal" tabindex="-1" aria-labelledby="errorMatchModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorMatchModalLabel">Error</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    Please choose correct microstructure and application images.
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="location.reload()"> ok </button>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Missing material  -->
+    <div class="modal fade" id="errorTypeModal" tabindex="-1" aria-labelledby="errorMatchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorMatchModalLabel">Error</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    Please choose a material first, and then select the correct microstructure and application images.
+                </div>
+                <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="location.reload()"> ok </button>
+            </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for functionality -->
+    <script>
+        const correctMatches = {
+            'aluminium': { microstructure: 'm-orth', application: 'app-orth' },
+            'copper': { microstructure: 'm-ammu', application: 'app-ammu' },
+            'brass70': { microstructure: 'm-bell', application: 'app-bell' },
+            'brass60': { microstructure: 'm-soft', application: 'app-soft' },
+            'bronze': { microstructure: 'm-elec', application: 'app-elec' },
+            'titanium': { microstructure: 'm-trum', application: 'app-trum' },
+        };
+
+        // Define your typeOrder array based on your requirements
+        const typeOrder = ['aluminium', 'copper', 'brass70', 'brass60', 'bronze', 'titanium'];
+
+        const materialNames = document.querySelectorAll('.material-name');
+        const microstructureImages = document.querySelectorAll('.microstructure-images');
+        const applicationImages = document.querySelectorAll('.application-images');
+
+        let correctlyMatchedMaterials = 0; // Initialize a variable to track correctly matched materials
+        let currentMaterialIndex = 0;
+        let selectedMaterial = null;
+        let selectedMicrostructure = null;
+        let selectedApplication = null;
+
+        function resetImagesStyles() {
+            const images = document.querySelectorAll('img.highlighted-img');
+            images.forEach(image => {
+                image.classList.remove('highlighted-img');
+            });
+        }
+
+        function resetStyles() {
+            materialNames.forEach(name => name.classList.remove('highlight'));
+            microstructureImages.forEach(image => image.classList.remove('highlight'));
+            applicationImages.forEach(image => image.classList.remove('highlight'));
+        }
+
+        function moveToNextMaterial() {
+            resetImagesStyles() // resete previous image style 
+            if (currentMaterialIndex < typeOrder.length) {
+                const nextMaterialButton = document.getElementById(typeOrder[currentMaterialIndex]);
+                nextMaterialButton.click();
+                nextMaterialButton.classList.add('selected');
+                currentMaterialIndex++;
+                console.log("next btn clicked selected =", nextMaterialButton)
+            } else {
+                // Check if all materials have been matched correctly
+                if (correctlyMatchedMaterials === 6) {
+                    // All types completed, show a completion modal
+                    $('#quizCompletedModal').modal('show');
+                }
+            }
+        }
+
+        // Automatically select the first type button and highlight it on page load
+        window.addEventListener('load', () => {
+            console.log(" setting first button  ")
+            const firstMaterialName = document.getElementById(typeOrder[0].toLowerCase());
+            if (firstMaterialName) {
+                firstMaterialName.click();
+                firstMaterialName.classList.add('selected');
+            }
+            console.log(" First button selected =", firstMaterialName)
+        });
+
+
+        // Add click event listeners to all the type buttons
+        const typeButtons = document.querySelectorAll('.btn-outline-success');
+        typeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (currentMaterialIndex === typeOrder.indexOf(button.id)) {
+                    selectedMaterial = button.id;
+                    typeButtons.forEach(b => b.classList.remove('selected'));
+                    button.classList.add('selected');
+                }
+            });
+        });
+
+        // Add click event listeners to the microstructure and application images
+        const images = document.querySelectorAll('img');
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                if (selectedMaterial) {
+                    console.log("selected type=", selectedMaterial)
+                    if (!selectedMicrostructure) {
+                        selectedMicrostructure = image.id;
+                        console.log("selected mic = ", selectedMicrostructure)
+                        image.classList.add('highlighted-img');  // adding microstructure image style 
+                    } else if (!selectedApplication) {
+                        selectedApplication = image.id;
+                        console.log("selected app = ", selectedApplication)
+                        image.classList.add('highlighted-img');  // adding application image style 
+
+                        if (
+                            selectedMicrostructure === correctMatches[selectedMaterial].microstructure &&
+                            selectedApplication === correctMatches[selectedMaterial].application
+                        ) {
+                            console.log("selected microstructure image=", selectedMicrostructure)
+                            console.log("selected application image =", selectedApplication)
+
+                            correctlyMatchedMaterials++; // Increment correctly matched materials
+
+                            // Check if the current type is the last type
+                            if (currentMaterialIndex === 6) {
+                                // All types completed, show a completion modal
+                                $('#quizCompletedModal').modal('show');
+                            } else {
+                                // Show the "Correct Match" modal for non-last types
+                                $('#correctMatchModal').modal('show');
+                            }
+                            moveToNextMaterial();
+                        } else {
+                            $('#errorMatchModal').modal('show');
+                            resetImagesStyles()
+                            // User selected an incorrect match, do not move to the next type
+                            // You don't need to set selectedMaterial to null here
+                        }
+
+                        selectedMicrostructure = null;
+                        selectedApplication = null;
+                    }
+                } else {
+                    console.log("No material selected =", selectedMaterial)
+                    $('#errorTypeModal').modal('show');
+                }
+            });
+        });
+        moveToNextMaterial();
+    </script>
 
 </body>
 
