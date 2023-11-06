@@ -42,6 +42,7 @@
             height: auto;
             padding: 5px;
             cursor: pointer;
+            margin-bottom: 30px;
         }
 
         .material-name {
@@ -60,8 +61,15 @@
             background-color: rgb(132, 38, 38);
             color: rgb(225, 234, 237);
         }
+        .position-relative{
+            position: relative;
+        }
 
         .placeholder-name {
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+
             display: flex;
             justify-content: center;
             color: red;
@@ -113,7 +121,9 @@
     <button type="button" class="btn btn-outline-info m-3"><a href="index.html">Back </a></button>
     <button type="button" class="btn btn-outline-info m-3"><a href="Simulator2.html">Next </a></button>
     <h2 class="d-flex justify-content-center align-items-center"> Simulator 1 </h2>
-    <p class="d-flex justify-content-center align-items-center text">Choose the correct microstructure of a suitable application used for a given material. Application and microstructure can be selected by clicking on the image, respectively.</p>
+    <p class="d-flex justify-content-center align-items-center text">Choose the correct microstructure of a suitable
+        application used for a given material. Application and microstructure can be selected by clicking on the image,
+        respectively.</p>
 
     <div class="container mb-2">
         <div class="row">
@@ -174,28 +184,27 @@
 
         <div class="row">
             <span class="main-title">Application </span>
-            <div class="col-md-2 border">
-                <img class="application-images" id="app-soft" src="./images/Softdrinkcans.png"
-                    alt="" />
+            <div class="col-md-2 border position-relative">
+                <img class="application-images" id="app-soft" src="./images/Softdrinkcans.png" alt="" />
                 <p class="placeholder-name"> Soft drink cans </p>
             </div>
-            <div class="col-md-2 border"><img class="application-images" id="app-ammu"
+            <div class="col-md-2 border position-relative"><img class="application-images" id="app-ammu"
                     src="./images/Ammunitioncasing.png" alt="" />
                 <p class="placeholder-name"> Ammunition casing </p>
             </div>
-            <div class="col-md-2 border"> <img class="application-images" id="app-trum" src="./images/Trumpets.png"
-                alt="" />
-            <p class="placeholder-name"> Trumpets </p>
+            <div class="col-md-2 border position-relative"> <img class="application-images" id="app-trum" src="./images/Trumpets.png"
+                    alt="" />
+                <p class="placeholder-name"> Trumpets </p>
             </div>
-            <div class="col-md-2 border"><img class="application-images" id="app-orth"
-                src="./images/Orthopaedicimplant.png" alt="" />
-            <p class="placeholder-name"> Orthopaedic implant </p>
+            <div class="col-md-2 border position-relative"><img class="application-images" id="app-orth"
+                    src="./images/Orthopaedicimplant.png" alt="" />
+                <p class="placeholder-name"> Orthopaedic implant </p>
             </div>
-            <div class="col-md-2 border"><img class="application-images" id="app-elec"
+            <div class="col-md-2 border position-relative"><img class="application-images" id="app-elec"
                     src="./images/Electricalwires.png" alt="" />
                 <p class="placeholder-name"> Electrical wires </p>
             </div>
-            <div class="col-md-2 border">
+            <div class="col-md-2 border position-relative">
                 <img class="application-images" id="app-bell" src="./images/Bell.png" alt="" />
                 <p class="placeholder-name"> Bell </p>
             </div>
