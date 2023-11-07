@@ -61,7 +61,8 @@
             background-color: rgb(132, 38, 38);
             color: rgb(225, 234, 237);
         }
-        .position-relative{
+
+        .position-relative {
             position: relative;
         }
 
@@ -192,8 +193,8 @@
                     src="./images/Ammunitioncasing.png" alt="" />
                 <p class="placeholder-name"> Ammunition casing </p>
             </div>
-            <div class="col-md-2 border position-relative"> <img class="application-images" id="app-trum" src="./images/Trumpets.png"
-                    alt="" />
+            <div class="col-md-2 border position-relative"> <img class="application-images" id="app-trum"
+                    src="./images/Trumpets.png" alt="" />
                 <p class="placeholder-name"> Trumpets </p>
             </div>
             <div class="col-md-2 border position-relative"><img class="application-images" id="app-orth"
@@ -289,6 +290,13 @@
 
     <!-- JavaScript for functionality -->
     <script>
+
+
+
+
+
+
+
         const correctMatches = {
             'aluminium': { microstructure: 'm-orth', application: 'app-orth' },
             'copper': { microstructure: 'm-ammu', application: 'app-ammu' },
@@ -311,6 +319,23 @@
         let selectedMicrostructure = null;
         let selectedApplication = null;
 
+
+        // Add click event listeners to all the material buttons
+        materialNames.forEach(button => {
+            button.addEventListener('click', () => {
+                // Disable all remaining material buttons
+                disableRemainingMaterialButtons(button);
+
+                // Handle the click event for the selected material
+                selectedMaterial = button.id;
+                materialNames.forEach(b => b.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+
+
+
+
         function resetImagesStyles() {
             const images = document.querySelectorAll('img.highlighted-img');
             images.forEach(image => {
@@ -330,7 +355,7 @@
                 const nextMaterialButton = document.getElementById(typeOrder[currentMaterialIndex]);
                 nextMaterialButton.click();
                 nextMaterialButton.classList.add('selected');
-                currentMaterialIndex++;
+                // currentMaterialIndex++;
                 console.log("next btn clicked selected =", nextMaterialButton)
             } else {
                 // Check if all materials have been matched correctly
@@ -396,6 +421,7 @@
                             } else {
                                 // Show the "Correct Match" modal for non-last types
                                 $('#correctMatchModal').modal('show');
+                                currentMaterialIndex++;
                             }
                             moveToNextMaterial();
                         } else {
