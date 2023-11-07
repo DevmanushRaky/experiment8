@@ -355,8 +355,6 @@
                 const nextMaterialButton = document.getElementById(typeOrder[currentMaterialIndex]);
                 nextMaterialButton.click();
                 nextMaterialButton.classList.add('selected');
-                // currentMaterialIndex++;
-                console.log("next btn clicked selected =", nextMaterialButton)
             } else {
                 // Check if all materials have been matched correctly
                 if (correctlyMatchedMaterials === 6) {
@@ -368,13 +366,13 @@
 
         // Automatically select the first type button and highlight it on page load
         window.addEventListener('load', () => {
-            console.log(" setting first button  ")
+            
             const firstMaterialName = document.getElementById(typeOrder[0].toLowerCase());
             if (firstMaterialName) {
                 firstMaterialName.click();
                 firstMaterialName.classList.add('selected');
             }
-            console.log(" First button selected =", firstMaterialName)
+           
         });
 
 
@@ -395,23 +393,21 @@
         images.forEach(image => {
             image.addEventListener('click', () => {
                 if (selectedMaterial) {
-                    console.log("selected type=", selectedMaterial)
+                   
                     if (!selectedMicrostructure) {
                         selectedMicrostructure = image.id;
-                        console.log("selected mic = ", selectedMicrostructure)
+                       
                         image.classList.add('highlighted-img');  // adding microstructure image style 
                     } else if (!selectedApplication) {
                         selectedApplication = image.id;
-                        console.log("selected app = ", selectedApplication)
+                 
                         image.classList.add('highlighted-img');  // adding application image style 
 
                         if (
                             selectedMicrostructure === correctMatches[selectedMaterial].microstructure &&
                             selectedApplication === correctMatches[selectedMaterial].application
                         ) {
-                            console.log("selected microstructure image=", selectedMicrostructure)
-                            console.log("selected application image =", selectedApplication)
-
+                    
                             correctlyMatchedMaterials++; // Increment correctly matched materials
 
                             // Check if the current type is the last type
@@ -435,7 +431,7 @@
                         selectedApplication = null;
                     }
                 } else {
-                    console.log("No material selected =", selectedMaterial)
+             
                     $('#errorTypeModal').modal('show');
                 }
             });
