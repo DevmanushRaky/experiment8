@@ -22,7 +22,7 @@
             justify-content: center;
             align-items: center;
             align-content: center;
-            margin: 5px
+            margin: 5px;
         }
 
         .story-content {
@@ -51,7 +51,6 @@
     <button type="button" class="btn btn-outline-info  m-3"><a href="Simulator1.html">Back </a></button>
     <h2 class="d-flex justify-content-center align-items-center"> Simulator 2</h2>
 
-
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -70,22 +69,110 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="customer-service">
-                    <img class="images" src="./images/kgreen.png" alt="" />
-                    <img class="images" src="./images/customer.png" alt="" />
-                    <img class="images" src="./images/you.png" alt="" />
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="images" src="./images/kgreen.png" alt="" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <img class="images" src="./images/customer.png" alt="" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <img class="images" src="./images/you.png" alt="" />
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup-scene-1">Open
+                        Scene 1</button>
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!--( Kane ) Tell me your problems ? -->
+    <!-- Conversation Pop-up - Scene 1: Kane Green's message -->
+    <div id="popup-scene-1" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kane Green</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Kane Green: "Tell me your problem."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#popup-scene-2">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!--  (Customer )question :   I want to make implant ...Hip implant and Knee joint -->
-<!--  ( You ) Answer : I have a solution -->
-<!--    Answer :  Your material will need……….=== Ti-alloy   ====Properties.
-                Use ……  == Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance,  ==  metal/alloy. -->
+    <!-- Conversation Pop-up - Scene 2: Customer's message -->
+    <div id="popup-scene-2" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Customer: "I want to make Hip implant and Knee joint."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#popup-scene-3">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conversation Pop-up - Scene 3: you -->
+    <div id="popup-scene-3" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">You</h5>
+                </div>
+                <div class="modal-body">
+                    <p>I have a solution:</p>
+                    <p>Your material will need <select id="properties">
+                            <option value="">Select properties...</option>
+                            <option
+                                value="Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance">
+                                Hip implant and Knee joint</option>
+                            <!-- Add more options for other customer demands here -->
+                        </select> Properties.</p>
+                    <p>Use <select id="metal">
+                            <option value="">Select metal/alloy...</option>
+                            <option value="Ti-alloy">Ti-alloy</option>
+                            <!-- Add more options for other materials here -->
+                        </select>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#popup-scene-4">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conversation Pop-up - Scene 4: Kane Green's message (Loop to Scene 1) -->
+    <div id="popup-scene-4" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kane Green</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Kane Green: "Tell me your problem."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#popup-scene-5">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
