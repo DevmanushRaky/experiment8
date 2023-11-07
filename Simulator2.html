@@ -42,8 +42,32 @@
 
         .images {
             margin: 4px;
-            width: 300px;
+            width: 290px;
             height: auto;
+        }
+
+        .popup-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .popup {
+            display: none;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .popup-button {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
         }
     </style>
 
@@ -74,111 +98,142 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-4">
-                        <img class="images" src="./images/kgreen.png" alt="" />
+                        <div class="images-container">
+                            <img class="images" src="./images/kgreen.png" alt="" />
+                            <div class="popup-container">
+                                <button class="popup-button" onclick="startConversation()">Start</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-md-4">
-                        <img class="images" src="./images/customer.png" alt="" />
+                        <div class="images-container">
+                            <img class="images" src="./images/customer.png" alt="" />
+                        </div>
                     </div>
 
                     <div class="col-md-4">
-                        <img class="images" src="./images/you.png" alt="" />
+                        <div class="images-container">
+                            <img class="images" src="./images/you.png" alt="" />
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popup-scene-1">Open
-                        Scene 1</button>
-
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Conversation Pop-up - Scene 1: Kane Green's message -->
-    <div id="popup-scene-1" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kane Green</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Kane Green: "Tell me your problem."</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#popup-scene-2">Next</button>
-                </div>
-            </div>
-        </div>
+    <div id="popup-scene-1" class="popup">
+        <p>Kane Green: "Tell me your problem."</p>
+        <button class="popup-button" onclick="showPopup('popup-scene-2')">Next</button>
     </div>
 
-    <!-- Conversation Pop-up - Scene 2: Customer's message -->
-    <div id="popup-scene-2" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Customer</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Customer: "I want to make Hip implant and Knee joint."</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#popup-scene-3">Next</button>
-                </div>
-            </div>
-        </div>
+    <div id="popup-scene-2" class="popup">
+        <p>Customer: "I want to make Hip implant and Knee joint."</p>
+        <button class="popup-button" onclick="showPopup('popup-scene-3')">Next</button>
     </div>
 
-    <!-- Conversation Pop-up - Scene 3: you -->
-    <div id="popup-scene-3" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">You</h5>
-                </div>
-                <div class="modal-body">
-                    <p>I have a solution:</p>
-                    <p>Your material will need <select id="properties">
-                            <option value="">Select properties...</option>
-                            <option
-                                value="Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance">
-                                Hip implant and Knee joint</option>
-                            <!-- Add more options for other customer demands here -->
-                        </select> Properties.</p>
-                    <p>Use <select id="metal">
-                            <option value="">Select metal/alloy...</option>
-                            <option value="Ti-alloy">Ti-alloy</option>
-                            <!-- Add more options for other materials here -->
-                        </select>.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#popup-scene-4">Next</button>
-                </div>
-            </div>
-        </div>
+    <div id="popup-scene-3" class="popup">
+        <p>I have a solution:</p>
+        <p>Your material will need <select id="properties">
+                <option value="">Select properties...</option>
+                <option value="Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance">Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance</option>
+                <option value="Light barrier, non-toxicity, oil resistance, tastelessness, water resistance, high and low temperature resistance">Light barrier, non-toxicity, oil resistance, tastelessness, water resistance, high and low temperature resistance</option>
+                <option value="Low melting point, higher malleability, strength, corrosion resistance, and formability">Low melting point, higher malleability, strength, corrosion resistance, and formability</option>
+                <option value="Higher sensitivity to shock, friction, and electrical current flow">Higher sensitivity to shock, friction, and electrical current flow</option>
+                <option value="Higher thermal conductivity, Higher corrosion resistance">Higher thermal conductivity, Higher corrosion resistance</option>
+                <option value="Excellent cold and hot working properties, higher corrosion resistance, and better machinability, lightweight">Excellent cold and hot working properties, higher corrosion resistance, and better machinability, lightweight</option>
+                <option value="Higher strength, wear resistance, excellent corrosion resistance, High surface hardness">Higher strength, wear resistance, excellent corrosion resistance, High surface hardness</option>
+
+            </select> Properties.</p>
+        <p>Use <select id="metal">
+                <option value="">Select metal/alloy...</option>
+                <option value="Ti-alloy">Ti-alloy</option>
+                <option value="Aluminium-foils">Aluminium foils</option>
+                <option value="Cartridge-brass">Cartridge brass</option>
+                <option value="Gliding-metal">Gliding metal</option>
+                <option value="Admiralty-brass">Admiralty brass</option>
+                <option value="Commercial-Bronze">Commercial Bronze</option>
+                <option value="Manganese-bronze">Manganese bronze</option>
+            </select>.</p>
+        <button class="popup-button" onclick="checkSolution('popup-scene-3', 'popup-scene-4')">Next</button>
+        <p class="error-message" id="scene-3-error"></p>
     </div>
 
-    <!-- Conversation Pop-up - Scene 4: Kane Green's message (Loop to Scene 1) -->
-    <div id="popup-scene-4" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kane Green</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Kane Green: "Tell me your problem."</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#popup-scene-5">Next</button>
-                </div>
-            </div>
-        </div>
+    <div id="popup-scene-4" class="popup">
+        <p>Kane Green: "Tell me your problem."</p>
+        <button class="popup-button" onclick="showPopup('popup-scene-5')">Next</button>
     </div>
 
+    <div id="popup-scene-5" class="popup">
+        <p>Customer: "I want to make Food packaging".</p>
+        <button class="popup-button" onclick="showPopup('popup-scene-6')">Next</button>
+    </div>
 
+    <div id="popup-scene-6" class="popup">
+        <p>I have a solution:</p>
+        <p>Your material will need <select id="properties">
+                <option value="">Select properties...</option>
+                <option value="Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance">Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance</option>
+                <option value="Light barrier, non-toxicity, oil resistance, tastelessness, water resistance, high and low temperature resistance">Light barrier, non-toxicity, oil resistance, tastelessness, water resistance, high and low temperature resistance</option>
+                <option value="Low melting point, higher malleability, strength, corrosion resistance, and formability">Low melting point, higher malleability, strength, corrosion resistance, and formability</option>
+                <option value="Higher sensitivity to shock, friction, and electrical current flow">Higher sensitivity to shock, friction, and electrical current flow</option>
+                <option value="Higher thermal conductivity, Higher corrosion resistance">Higher thermal conductivity, Higher corrosion resistance</option>
+                <option value="Excellent cold and hot working properties, higher corrosion resistance, and better machinability, lightweight">Excellent cold and hot working properties, higher corrosion resistance, and better machinability, lightweight</option>
+                <option value="Higher strength, wear resistance, excellent corrosion resistance, High surface hardness">Higher strength, wear resistance, excellent corrosion resistance, High surface hardness</option>
 
+            </select> Properties.</p>
+        <p>Use <select id="metal">
+                <option value="">Select metal/alloy...</option>
+                <option value="Ti-alloy">Ti-alloy</option>
+                <option value="Aluminium-foils">Aluminium foils</option>
+                <option value="Cartridge-brass">Cartridge brass</option>
+                <option value="Gliding-metal">Gliding metal</option>
+                <option value="Admiralty-brass">Admiralty brass</option>
+                <option value="Commercial-Bronze">Commercial Bronze</option>
+                <option value="Manganese-bronze">Manganese bronze</option>
+            </select>.</p>
+        <button class="popup-button" onclick="checkSolution('popup-scene-6', 'popup-scene-7')">Next</button>
+        <p class="error-message" id="scene-3-error"></p>
+    </div>
+
+    <div id="popup-scene-7" class="popup">
+        <p>Kane Green: "Tell me your problem."</p>
+        <button class="popup-button" onclick="showPopup('popup-scene-5')">Next</button>
+    </div>
+    
+    <script>
+        function startConversation() {
+            showPopup('popup-scene-1');
+        }
+
+        function showPopup(popupId) {
+            var popups = document.querySelectorAll('.popup');
+            for (var i = 0; i < popups.length; i++) {
+                popups[i].style.display = 'none';
+            }
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        function checkSolution(currentPopupId, nextPopupId) {
+            var propertiesSelect = document.getElementById("properties");
+            var metalSelect = document.getElementById("metal");
+            var scene3Error = document.getElementById("scene-3-error");
+
+            var selectedProperties = propertiesSelect.value;
+            var selectedMetal = metalSelect.value;
+
+            // Check if the user's selections are correct
+            if (
+                selectedProperties === "Elastic modulus matching with bone, Biocompatibility, Higher corrosion resistance" &&
+                selectedMetal === "Ti-alloy"
+            ) {
+                showPopup(nextPopupId);
+                scene3Error.textContent = ""; // Clear any previous error message
+            } else {
+                scene3Error.textContent = "Your answer is incorrect. Please select the correct properties and metal.";
+            }
+        }
+    </script>
 
 </body>
 
