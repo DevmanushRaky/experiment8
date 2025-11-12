@@ -105,6 +105,14 @@
             color: green;
         }
 
+        .customer-requirement {
+            background-color: rgba(111, 48, 160, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid rgba(111, 48, 160, 0.944);
+            margin-bottom: 20px;
+        }
+
         #properties-1,
         #properties-2,
         #properties-3,
@@ -153,7 +161,8 @@
         #popup-scene-3,
         #popup-scene-7,
         #popup-scene-11,
-        #popup-scene-15 #popup-scene-19,
+        #popup-scene-15,
+        #popup-scene-19,
         #popup-scene-23,
         #popup-scene-27 {
             background-color: rgba(227, 11, 11, 0.69);
@@ -366,6 +375,9 @@
 
                         <!--  Question 1 -->
                         <div id="popup-scene-4" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Hip implant and Knee joint</strong></h5>
+                            </div>
                             <p>Your material will need
                                 <select id="properties-1">
                                     <option value="">Select properties...</option>
@@ -422,6 +434,9 @@
 
                         <!-- Question 2 -->
                         <div id="popup-scene-8" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Food packaging</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-2">
                                     <option value="">Select properties...</option>
                                     <option
@@ -475,6 +490,9 @@
 
                         <!-- Question 3 -->
                         <div id="popup-scene-12" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Plumbing components</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-3">
                                     <option value="">Select properties...</option>
                                     <option
@@ -528,6 +546,9 @@
 
                         <!-- Question 4 -->
                         <div id="popup-scene-16" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Fuse caps</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-4">
                                     <option value="">Select properties...</option>
                                     <option
@@ -581,6 +602,9 @@
 
                         <!-- Question 5 -->
                         <div id="popup-scene-20" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Condenser cooler</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-5">
                                     <option value="">Select properties...</option>
                                     <option
@@ -634,6 +658,9 @@
 
                         <!-- Question 6 -->
                         <div id="popup-scene-24" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Lipstick cases</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-6">
                                     <option value="">Select properties...</option>
                                     <option
@@ -684,6 +711,9 @@
 
                         <!-- Question 7 -->
                         <div id="popup-scene-28" class="popup question-box">
+                            <div class="customer-requirement">
+                                <h5 class="customer-name mb-0"><strong>📋 Customer Requirement: Bearings</strong></h5>
+                            </div>
                             <p>Your material will need <select id="properties-7">
                                     <option value="">Select properties...</option>
                                     <option
@@ -783,6 +813,39 @@
             var selectedProperties = propertiesSelect.value;
             var selectedMetal = metalSelect.value;
 
+            // Check if selections are empty
+            if (!selectedProperties || !selectedMetal) {
+                var errorMsg = "Please select both properties and metal/alloy before submitting.";
+                if (currentPopupId === 'popup-scene-4') {
+                    result1.textContent = errorMsg;
+                    result1.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-8') {
+                    result2.textContent = errorMsg;
+                    result2.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-12') {
+                    result3.textContent = errorMsg;
+                    result3.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-16') {
+                    result4.textContent = errorMsg;
+                    result4.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-20') {
+                    result5.textContent = errorMsg;
+                    result5.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-24') {
+                    result6.textContent = errorMsg;
+                    result6.className = "error-message";
+                }
+                else if (currentPopupId === 'popup-scene-28') {
+                    result7.textContent = errorMsg;
+                    result7.className = "error-message";
+                }
+                return;
+            }
 
             // Check if the user's selections are correct
             if (
@@ -797,24 +860,31 @@
                 // Display a success message
                 if (currentPopupId === 'popup-scene-4') {
                     result1.textContent = "You are correct!";
+                    result1.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-8') {
                     result2.textContent = "Great Job !";
+                    result2.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-12') {
                     result3.textContent = "Good !";
+                    result3.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-16') {
                     result4.textContent = "Correct answer !";
+                    result4.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-20') {
                     result5.textContent = "Great job !";
+                    result5.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-24') {
                     result6.textContent = "Your choice is correct !";
+                    result6.className = "success-message";
                 }
                 else if (currentPopupId === 'popup-scene-28') {
                     result7.textContent = "Great choice !";
+                    result7.className = "success-message";
                 }
 
                 // Wait for 2 seconds and then proceed to the next question
@@ -822,24 +892,31 @@
                     // Clear the success message
                     if (currentPopupId === 'popup-scene-4') {
                         result1.textContent = "";
+                        result1.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-8') {
                         result2.textContent = "";
+                        result2.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-12') {
                         result3.textContent = "";
+                        result3.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-16') {
                         result4.textContent = "";
+                        result4.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-20') {
                         result5.textContent = "";
+                        result5.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-24') {
                         result6.textContent = "";
+                        result6.className = "";
                     }
                     else if (currentPopupId === 'popup-scene-28') {
                         result7.textContent = "";
+                        result7.className = "";
                     }
 
                     //  call next question 
@@ -850,24 +927,31 @@
                 // Display an error message
                 if (currentPopupId === 'popup-scene-4') {
                     result1.textContent = "Your answer is incorrect. Please select the correct properties and metal.";
+                    result1.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-8') {
                     result2.textContent = "Oh! wrong choice . Please choose correct.";
+                    result2.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-12') {
                     result3.textContent = "Try again. Please select the correct properties and metal.";
+                    result3.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-16') {
                     result4.textContent = "Your choice is incorrect. Please select the correct properties and metal.";
+                    result4.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-20') {
                     result5.textContent = "Your answer is incorrect. Please select the correct properties and metal.";
+                    result5.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-24') {
                     result6.textContent = "Your answer is incorrect. Please select the correct properties and metal.";
+                    result6.className = "error-message";
                 }
                 else if (currentPopupId === 'popup-scene-28') {
                     result7.textContent = "Your answer is incorrect. Please select the correct properties and metal.";
+                    result7.className = "error-message";
                 }
             }
         }
